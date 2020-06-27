@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
+</head>
+<body>
+    <div class="message-container">
+
+        <div class="header"><h3>Message Sending App</h3></div>
+
+        <div class="main">
+            <label for="message-input">Message Costs 5 NGN/text</label>
+            <input type="text" placeholder="Enter Message" required class="message-input" id='message-input'>
+            <small class="errorMsg" id="errorMsg">Maximum of 10 Words</small>
+        
+        <input type="checkbox" class="message-check" id="message-check"  > <small>Hide Message</small>
+
+        <button type="submit" id='sendbtn' class="send-btn">Send</button>
+
+        <div class="messageDelivered">
+            <div class="loaderGroup" id='loaderGroup'>
+                <span class="loadertext"><i>Message Sending...</i></span>
+                <div class="loader"></div>
+            </div>
+            <h4>Last Message Delivered </h4> <br>
+        </div>
+
+        
+
+        <div class="message-box" id='message-box'>Hello World</div>
+
+        <div class="message-data">
+            <i class="fa fa-envelope-open fa-2x" aria-hidden="true"></i>
+            You have sent <span id="count">0</span> messages at the cost of <span class="sign">&#8358</span><span id="total">0</span>.
+        <p ><a href="#" class="openModal">Click</a> To Show Message History</p></div>
+
+        <!-- Message Log Modal -->
+        <div class="message-log-container">
+            
+            <div class="message-log-modal" id="message-log">
+                <div class="timer" id="timer">00:00:00</div>
+                <div class="closeModal" id="closeModal">
+                    <i class="fas fa-times fa-2x "></i>
+                </div>
+                <div class="messageLogHeader"><i class="fas fa-inbox fa-2x   "></i><h3>Messages Log</h3></div>
+                
+            </div>
+        </div>
+
+        </div>
+        <div class="showSent" id="showSent">
+            Message Sent <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+        
+        <div class="footer">
+            <span> &#169 created By Micah Shallom</span>
+            <ul>
+                <li><a href=""><i class="fab fa-facebook-f   "></i></a></li>
+                
+                <li><a href="https://github.com/Micah-Shallom"><i class="fab fa-github   "></i></a></li>
+                
+                <li><a href=""><i class="fab fa-twitter   "></i></a></li>
+                
+            </ul>
+        </div>
+        
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

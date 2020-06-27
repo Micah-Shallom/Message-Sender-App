@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Source Code Pro',sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --modal-duration:1s;
+    --primary-color:rgb(48, 51, 107);
+    --secondary-color:crimson;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.message-container{
+    box-shadow:
+    3px 5px 10px #ccc ,
+    -3px -2px 10px #ccc
+    ;
+    max-width: 90%;
+    width: 800px;
+}
+.header {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+.header h3{
+    border-bottom: 2px solid #ccc;
+}
+.main{
+    padding: 0px 20px;
+}
+.main label{
+    display: block;
+    margin-bottom: 8px;
+}
+.main .message-input{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #666;
+    border-radius: 5px;
+}
+
+.main .message-input::placeholder{
+    font-weight: 600;
+}
+.main .errorMsg{
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-align: right;
+    display: none;
+}
+.errorMsg.show-error{
+    display: block;
+}
+.main .send-btn{
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    padding: 8px 0;
+    border: 0;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.main .messageDelivered{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.main h4{
+    margin-bottom: 5px;
+}
+.main .loaderGroup{
+    display: flex;
+    display: none;
+}
+.main .loader{
+    height: 20px;
+    width: 20px;
+    border: 3px solid black;
+    margin-left: 10px;
+    border-radius: 50%;
+    border-color: var(--primary-color);
+    border-top: 3px solid var(--secondary-color);
+    animation: roll 2s linear infinite;
+    box-shadow: 0px -6px 5px var(--primary-color) ;
+}
+
+.loaderGroup.show-loader{
+    display: flex;
+}
+.fa-envelope-open{
+    color: var(--secondary-color);
+}
+
+.main .message-box{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow:
+    -3px -3px 10px rgba(48,51,107,.9) inset,
+    5px 3px 10px rgba(255,255,255,0.5) ;
+    ;
+    background: linear-gradient(-45deg,rgba(0,0,0,0.1),rgba(255,255,255,0.9));
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.main .message-data{
+    text-align: center;
+    font-size: 12px;
+}
+.message-data p{
+    margin: 10px 0;
+}
+.main .message-data span{
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+
+.main .message-log-container{
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 1000;
+}
+.message-log-container.show-modal{
+    display: flex;
+}
+
+
+.main .message-log-modal{
+    background-color: var(--primary-color);
+    width: 400px;
+    border: 2px solid black;
+    color: white;
+    height: auto;
+    min-height: 300px;
+    padding-bottom: 20px;
+    position: absolute;
+    animation:fade 1.5s;
+}
+
+.main .message-log-modal p{
+    padding: 0px 5px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    font-size: 12px;
+}
+.main .message-log-modal span{
+    font-size: 12px;
+    text-decoration: underline;
+    text-align: right;
+    background-color: var(--secondary-color);
+}
+
+.main .messageLogHeader{
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.closeModal{
+    position: absolute;
+    right: 10;
+    top: 5;
+}
+
+.timer{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.showSent{
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: scale(0) translate(-500%,-100%);
+    transition: all 1s;
+}
+
+.showSent.show{
+    transform: scale(1);
+}
+
+.message-log-modal p.time{
+    float: right;
+}
+
+@keyframes roll{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+@keyframes fade{
+    from{opacity: 0;};
+    to{opacity: 1;}
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    padding: 0px 20px;
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.footer ul{
+    display: flex;
+    list-style-type: none;
+    align-self: center;
+}
+.footer span{
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.footer ul li:not(:last-of-type){
+    margin-right:50px;
+}
+ul li a{
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+
