@@ -135,4 +135,30 @@ messageInput.addEventListener('input',()=>{
 
 // populateUI();
 
+//Enabling Welcome Page Typewriter Effect
+const welcomePageTitles=document.querySelector('.welcomePageTitle');
+let welcomePageTitle=`Welcome to my Message Sender App `;
+welcomePageTitleArr=welcomePageTitle.split(' ').join('.');
+let textSpeed=300,i=0;
 
+
+const typingEffect=()=>{
+    if(i<welcomePageTitleArr.length){
+        welcomePageTitles.innerText+=`${welcomePageTitleArr[i]}`
+        i++;
+        setTimeout(typingEffect,textSpeed);
+    }
+}
+
+document.body.onload=function (){
+    typingEffect();
+    setTimeout(removeMsgs,20000);
+}
+
+const removeMsgs=()=>{
+    document.querySelector('.welcomePage').classList.add('show');
+}
+
+
+    
+ 

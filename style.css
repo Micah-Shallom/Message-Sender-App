@@ -22,6 +22,35 @@ body{
     position: relative;
 }
 
+.welcomePage{
+    font-size: 15px;
+    width: 400px;
+    position: absolute;
+    z-index: 10000;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: block;
+}
+.welcomePage.show{
+    display: none;
+}
+.welcomePage h3{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 3px white;
+}
+.welcomePageText li{
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.welcomePageText li::before{
+    content: '~ ';
+}
+
 .message-container{
     box-shadow:
     3px 5px 10px #ccc ,
@@ -30,6 +59,7 @@ body{
     max-width: 90%;
     width: 800px;
 }
+
 .header {
     background-color: var(--primary-color);
     color: #fff;
@@ -261,6 +291,12 @@ ul li a{
 @media only screen and (max-width:500px){
     .message-log-container .message-log-modal{
         width: 80%;
+    }
+    .welcomePage{
+        width: 80%;
+    }
+    .welcomePageTitle{
+        font-size: 10px;
     }
 }
 
