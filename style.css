@@ -258,6 +258,12 @@ ul li a{
     font-size: 20px;
 }
 
+@media only screen and (max-width:500px){
+    .message-log-container .message-log-modal{
+        width: 80%;
+    }
+}
+
 
 
 

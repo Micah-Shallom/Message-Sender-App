@@ -11,10 +11,12 @@ const messageBox=document.getElementById('message-box');
 const showSent=document.getElementById('showSent');
 const messages=[];
 
+
+
 // GlobalTimer
 function showTime(){
     let date=new Date();
-    let hours=date.getHours()-12;
+    let hours=date.getHours();
     let mins=date.getMinutes();
     let secs=date.getSeconds();
     ((hours)<10)?hours='0'+hours:hours;
@@ -80,12 +82,14 @@ const updateMessageCount=()=>{
     count.innerHTML=messages.length;
     total.innerText=messages.length*5;
     
+    localStorage.setItem('savedMessages',JSON.stringify(messages));
+    
     logMessagesToModal();
 }
 
 const logMessagesToModal=()=>{
     let date=new Date();
-    let hours=date.getHours()-12;
+    let hours=date.getHours();
     let mins=date.getMinutes();
     let secs=date.getSeconds();
     ((hours)<10)?hours='0'+hours:hours;
@@ -118,7 +122,17 @@ messageInput.addEventListener('input',()=>{
     }
 })
 
+// populatingUI with message data from localstorage coming soon
+// function populateUI(){
+//     const savedMessages=JSON.parse(localStorage.getItem('savedMessages'));
+//     count.innerText=savedMessages.length;
+//     total.innerText=savedMessages.length*5;
+//     messageBox.innerText=savedMessages[savedMessages.length-1];
+//     showSent.classList.add('show');
+//     showSent.innerText=`${savedMessages.length} was sent before refresh`
+    
+// }
 
-
+// populateUI();
 
 
